@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+  <g id="close-small" transform="translate(6)">
+    <g id="Groupe_19" data-name="Groupe 19" transform="translate(-6)">
+      <path id="Tracé_100" data-name="Tracé 100" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Tracé_101" data-name="Tracé 101" d="M8,8,19.074,19.074" transform="translate(-1.537 -1.537)" fill="none" stroke="#242424" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+      <path id="Tracé_102" data-name="Tracé 102" d="M19.074,8,8,19.074" transform="translate(-1.537 -1.537)" fill="none" stroke="#242424" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+    </g>
+  </g>
+</svg>
