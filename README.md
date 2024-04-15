@@ -1,21 +1,38 @@
-# Introduction
+# React-demo-search
+
+## Introduction
 This is a vite react-ts demo shows you how to install and use sdk-js to send request and get response.
 
-## install
-clone sdk-js and react-demo. 
+## Before setup
+Clone [sdk-js](https://github.com/k-ai-Documentation/sdk-js) and [react-demo-search](https://github.com/k-ai-Documentation/react-demo-search).
+
+And your directory should like this:
 ```
-cd react-demo
+|-your root directory
+    |-react-demo-search
+    |-sdk-js
 ```
-Open .env.development and change VITE_REACT_APP_ORGANIZATION_ID, VITE_REACT_APP_INSTANCE_ID and VITE_REACT_APP_API_KEY with your keys.
+open terminal and run
+```
+cd react-demo-search
+```
+Add your 3 keys in .env.development file.
+```
+VUE_APP_ORGANIZATION_ID = ''
+VUE_APP_INSTANCE_ID = ''
+VUE_APP_API_KEY = ''
+```
+## Installation
 ```
 npm install ../sdk-js
+
 npm install
 ```
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-## run
-```
-npm run dev
-```
 
 ## play
 Open your browser and go to http://localhost:5173/
