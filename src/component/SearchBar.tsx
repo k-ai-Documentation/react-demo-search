@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SearchBar.module.scss';
-
+import searchIcon from 'kai-assets/icons/search.svg'
+import smallClose from 'kai-assets/icons/close-small.svg'
 type SearchBarProps = {
     searchInput: string;
     setValue: (value: string) => void;
@@ -8,15 +9,13 @@ type SearchBarProps = {
 };
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchInput, setValue, handleSearch }) => {
-    const [isClicked, setIsClicked] = React.useState(false);
     const clearInput = () => {
         setValue('');
     };
     return (
-        <div className={styles.searchBar}>
+        <div className={"search-bar "+styles.searchBar}>
             <input
                 type="text"
-                className={styles.textbox}
                 placeholder="Search for anything"
                 value={searchInput}
                 onChange={(e) => {
@@ -27,15 +26,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchInput, setValue, handleSear
                         handleSearch();
                     }
                 }}
-                onFocus={() => {
-                    setIsClicked(true);
-                }}
-                onBlur={() => {
-                    setIsClicked(false);
-                }}
             />
-            <img className={`${isClicked || searchInput ? styles.left : styles.right}`} src="/search.svg" alt="search" onClick={handleSearch} />
-            {searchInput !== '' && <img className={styles.iconClose} src="/close-small.svg" alt="close" onClick={clearInput} />}
+            <img className={styles.left+" icon-18"} src={searchIcon} alt="search" onClick={handleSearch} />
+            {searchInput !== '' && <img className={styles.iconClose+" icon-18"} src={smallClose} alt="close" onClick={clearInput} />}
         </div>
     );
 };

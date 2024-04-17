@@ -4,13 +4,12 @@
 This is a vite react-ts demo shows you how to install and use sdk-js to send request and get response.
 
 ## Before setup
-Clone [sdk-js](https://github.com/k-ai-Documentation/sdk-js) and [react-demo-search](https://github.com/k-ai-Documentation/react-demo-search).
+Clone [react-demo-search](https://github.com/k-ai-Documentation/react-demo-search).
 
 And your directory should like this:
 ```
 |-your root directory
     |-react-demo-search
-    |-sdk-js
 ```
 open terminal and run
 ```
@@ -24,13 +23,11 @@ VUE_APP_API_KEY = ''
 ```
 ## Installation
 ```
-npm install ../sdk-js
-
 npm install
 ```
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run dev
 ```
 
 
@@ -43,7 +40,6 @@ Have fun!
 
 + make sure you have installed sdk-js and react-demo.
 ```
-npm install ../sdk-js
 npm install
 ```
 + check in your package.json and node_modules, sdk-js should be installed.

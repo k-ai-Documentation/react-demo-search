@@ -3,39 +3,25 @@
     align-items: center;
     justify-content: left;
     position: relative;
-    border-radius: 80px;
-    width: 515px;
-    height: 49px;
-    border: 1px solid #555B6F;
-    .textbox {
+    width: 626px !important;
+    height: 30px;
+    border-radius: 20px;
+    input {
         outline: none;
         border: none;
         background: transparent;
         min-width: 100px;
         display: inline-block;
         width: 100%;
-        padding: 0 14px 0 42px;
-        height: 49px;
         font-size: 14px;
-        font-weight: bold;
-        color: black;
+        color: var(--white-color);
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 432px;
-            &::placeholder {
-                font-weight: normal;
-                font-size: 14px;
-            }
+        width: 543px;
     }
     .left {
         position: absolute;
         left: 14px;
-        height: 22px;
-        cursor: pointer;
-    }
-    .right {
-        position: absolute;
-        right: 25px;
         height: 22px;
         cursor: pointer;
     }

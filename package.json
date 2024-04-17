@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "kaistudio-sdk-js": "file:../sdk-js",
+    "kai-assets": "git@github.com:k-ai-Documentation/kai-assets.git",
+    "kaistudio-sdk-js": "git@github.com:k-ai-Documentation/sdk-js.git",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

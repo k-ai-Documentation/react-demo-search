@@ -1,12 +1,18 @@
 import './App.css'
-import SearchPage from './component/SearchPage';
+import SearchBox from './component/SearchBox';
+import KaiLogo from 'kai-assets/logo.svg';
 
 function App() {
 
   return (
     <div className="App">
-      <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"/>
-      <SearchPage />
+        <div className='content'>
+            <div className='logo'>
+                <img src={KaiLogo} />
+            </div>
+            <SearchBox />
+        </div>
+
     </div>
   )
 }
