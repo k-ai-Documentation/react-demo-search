@@ -15,11 +15,22 @@ open terminal and run
 ```
 cd react-demo-search
 ```
-Add your 3 keys in .env.development file.
+Add fill your keys in .env.development file.
+
+If you are using SaaS version, you need 3 keys(organizationId, instanceId, apiKey).
+
+If you are using Premise version, you need host and api key(optional).
+
+See More about SaaS and Premise version in [here](https://github.com/k-ai-Documentation/sdk-js#usage-guide).
 ```
-VUE_APP_ORGANIZATION_ID = ''
-VUE_APP_INSTANCE_ID = ''
-VUE_APP_API_KEY = ''
+# if you are using saas 
+VITE_REACT_APP_ORGANIZATION_ID = ''
+VITE_REACT_APP_INSTANCE_ID = ''
+VITE_REACT_APP_API_KEY = ''
+
+# if you are using version premise. You must need host, but api key is optional, depends on your enterprise settings. 
+VITE_REACT_APP_HOST = ''
+VITE_REACT_APP_API_KEY = ''
 ```
 ## Installation
 ```

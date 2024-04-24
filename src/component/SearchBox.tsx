@@ -4,15 +4,23 @@ import { KaiStudio } from 'kaistudio-sdk-js';
 import SearchBar from './SearchBar';
 import type { SearchResult } from 'kaistudio-sdk-js/modules/Search';
 
-if (!import.meta.env.VITE_REACT_APP_ORGANIZATION_ID || !import.meta.env.VITE_REACT_APP_INSTANCE_ID || !import.meta.env.VITE_REACT_APP_API_KEY) {
+const { VITE_REACT_APP_ORGANIZATION_ID, VITE_REACT_APP_INSTANCE_ID, VITE_REACT_APP_API_KEY, VITE_REACT_APP_HOST } = import.meta.env;
+
+if (!((VITE_REACT_APP_ORGANIZATION_ID && VITE_REACT_APP_INSTANCE_ID && VITE_REACT_APP_API_KEY) || VITE_REACT_APP_HOST)) {
     throw new Error('Missing required environment variables');
 }
-
+// if you are using saas
 const sdk = new KaiStudio({
-    organizationId: import.meta.env.VITE_REACT_APP_ORGANIZATION_ID,
-    instanceId: import.meta.env.VITE_REACT_APP_INSTANCE_ID,
-    apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
+    organizationId: VITE_REACT_APP_ORGANIZATION_ID,
+    instanceId: VITE_REACT_APP_INSTANCE_ID,
+    apiKey: VITE_REACT_APP_API_KEY,
 });
+
+// if you are using premise
+// const sdk = new KaiStudio({
+//     host: VITE_REACT_APP_HOST,
+//     apiKey: VITE_REACT_APP_API_KEY,
+// }
 
 const SearchPage: React.FC = () => {
     const [searchInput, setValue] = useState<string>('');
@@ -82,11 +90,11 @@ const SearchPage: React.FC = () => {
                             <p className={styles.answer + ' text-white text-regular-14'}>{searchAnswer.answer}</p>
                             <div className={styles.answerInformation}>
                                 <div className={styles.answerBlock}>
-                                    <p className={styles.subtitle + " text-regular-14 text-grey"}>Reason</p>
+                                    <p className={styles.subtitle + ' text-regular-14 text-grey'}>Reason</p>
                                     <p className="text-white">{searchAnswer.reason}</p>
                                 </div>
                                 <div className={styles.answerBlock}>
-                                    <p className={styles.subtitle + " text-regular-14 text-grey"}>Source</p>
+                                    <p className={styles.subtitle + ' text-regular-14 text-grey'}>Source</p>
                                     {searchAnswer.documents.length > 0 ? (
                                         searchAnswer.documents.map((source, index) => (
                                             <p className="text-white" key={index}>
@@ -100,11 +108,11 @@ const SearchPage: React.FC = () => {
                                     )}
                                 </div>
                                 <div className={styles.answerBlock}>
-                                    <p className={styles.subtitle + " text-regular-14 text-grey"}>Related-questions</p>
+                                    <p className={styles.subtitle + ' text-regular-14 text-grey'}>Related-questions</p>
                                     {searchAnswer.followingQuestions.length > 0 ? (
                                         searchAnswer.followingQuestions.map((question, index) => (
                                             <p
-                                                className={styles.clickable + " text-white"}
+                                                className={styles.clickable + ' text-white'}
                                                 key={index}
                                                 onClick={() => {
                                                     searchNewQuestion(question);
