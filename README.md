@@ -32,6 +32,12 @@ VITE_REACT_APP_API_KEY = ''
 VITE_REACT_APP_HOST = ''
 VITE_REACT_APP_API_KEY = ''
 ```
+
+You can change paramater of search in .env.development file to change the search result.
+```bash
+VITE_REACT_APP_MULTI_DOCUMENTS = true # if you want to search result have multiple documents sources, set it to true.
+VITE_REACT_APP_NEED_FOLLOWING_QUESTIONS = true # if you want to search result have following questions, set it to true.
+```
 ## Installation
 ```
 npm install

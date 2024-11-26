@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "kai-assets": "git@github.com:k-ai-Documentation/kai-assets.git",
-    "kaistudio-sdk-js": "git@github.com:k-ai-Documentation/sdk-js.git",
+    "kaistudio-sdk-js": "git@github.com:k-ai-Documentation/sdk-js.git#version2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

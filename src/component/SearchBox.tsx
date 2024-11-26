@@ -4,7 +4,7 @@ import { KaiStudio } from 'kaistudio-sdk-js';
 import SearchBar from './SearchBar';
 import type { SearchResult } from 'kaistudio-sdk-js/modules/Search';
 
-const { VITE_REACT_APP_ORGANIZATION_ID, VITE_REACT_APP_INSTANCE_ID, VITE_REACT_APP_API_KEY, VITE_REACT_APP_HOST } = import.meta.env;
+const { VITE_REACT_APP_ORGANIZATION_ID, VITE_REACT_APP_INSTANCE_ID, VITE_REACT_APP_API_KEY, VITE_REACT_APP_HOST, VITE_REACT_APP_MULTI_DOCUMENTS, VITE_REACT_APP_NEED_FOLLOWING_QUESTIONS } = import.meta.env;
 
 if (!((VITE_REACT_APP_ORGANIZATION_ID && VITE_REACT_APP_INSTANCE_ID && VITE_REACT_APP_API_KEY) || VITE_REACT_APP_HOST)) {
     throw new Error('Missing required environment variables');
@@ -50,7 +50,9 @@ const SearchPage: React.FC = () => {
         try {
             if (input !== '') {
                 //fetch data
-                const searchResult = await sdk.search().query(input, '');
+                const multiDocuments = VITE_REACT_APP_MULTI_DOCUMENTS === 'true';
+                const needFollowingQuestions = VITE_REACT_APP_NEED_FOLLOWING_QUESTIONS === 'true';
+                const searchResult = await sdk.search().query(input, 'userid', '', multiDocuments, needFollowingQuestions);
                 setResults(searchResult);
                 setProgress(100);
                 await new Promise((resolve) => setTimeout(resolve, 500));
@@ -107,23 +109,26 @@ const SearchPage: React.FC = () => {
                                         <p>No results found</p>
                                     )}
                                 </div>
-                                <div className={styles.answerBlock}>
-                                    <p className={styles.subtitle + ' text-regular-14 text-grey'}>Related-questions</p>
-                                    {searchAnswer.followingQuestions.length > 0 ? (
-                                        searchAnswer.followingQuestions.map((question, index) => (
-                                            <p
-                                                className={styles.clickable + ' text-white'}
-                                                key={index}
-                                                onClick={() => {
-                                                    searchNewQuestion(question);
-                                                }}>
-                                                {question}
-                                            </p>
-                                        ))
-                                    ) : (
-                                        <p>No results found</p>
-                                    )}
-                                </div>
+                                {VITE_REACT_APP_NEED_FOLLOWING_QUESTIONS === 'true' && (
+                                    <div className={styles.answerBlock}>
+                                        <p className={styles.subtitle + ' text-regular-14 text-grey'}>Related-questions</p>
+                                        {searchAnswer.followingQuestions.length > 0 ? (
+                                            searchAnswer.followingQuestions.map((question, index) => (
+                                                <p
+                                                    className={styles.clickable + ' text-white'}
+                                                    key={index}
+                                                    onClick={() => {
+                                                        searchNewQuestion(question);
+                                                    }}>
+                                                    {question}
+                                                </p>
+                                            ))
+                                        ) : (
+                                            <p>No results found</p>
+                                        )}
+                                    </div>
+                                )}
+                                
                             </div>
                         </div>
                     )}
