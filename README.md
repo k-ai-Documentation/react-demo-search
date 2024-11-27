@@ -2,6 +2,8 @@
 
 ## Introduction
 This is a vite react-ts demo shows you how to install and use sdk-js to send request and get response.
+1. For search function, you can search questions and get answers.
+2. For search with identify documents, you can chat with a chatbot. There will be 2 steps to get the answer. First step is to get the correct question, once we have the correct question, we will send the question to the server to get the answer.
 
 ## Before setup
 Clone [react-demo-search](https://github.com/k-ai-Documentation/react-demo-search).
